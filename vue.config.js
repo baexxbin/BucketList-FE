@@ -17,5 +17,27 @@ module.exports = defineConfig({
         changeOrigin: true,
       }
     }
+  },
+
+  pluginOptions: {
+    vuetify: {
+			// https://github.com/vuetifyjs/vuetify-loader/tree/next/packages/vuetify-loader
+		}
+  },
+
+
+  // 웹팩 설정 조작을 위해 웹팩의 내부 API 사용
+  chainWebpack: config => {
+    config.module
+      .rule('vue')
+      .use('vue-loader')
+        .loader('vue-loader')
+        .tap(options => {
+          // modify the options...
+          return options
+        })
   }
+
 })
+
+
