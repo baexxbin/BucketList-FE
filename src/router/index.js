@@ -1,5 +1,7 @@
-import { createRouter, createWebHistory } from "vue-router";
-// import MainView from '../views/MainView.vue';
+import Vue from 'vue';
+import VueRouter from 'vue-router';
+import MainView from '../views/MainView.vue';
+
 
 // 연결할 컴포넌트들
 
@@ -8,13 +10,13 @@ const routes = [
     {
         path: "/main",
         name: "main",
-        component: () => import('../views/MainView')
+        component: MainView
     },
 ];
 
 // 라우터 생성
-const router = createRouter({
-    history: createWebHistory(),
+const router = new VueRouter({
+    mode: 'history',
     routes
 });
 
